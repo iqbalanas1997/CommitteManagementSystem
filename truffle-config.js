@@ -21,8 +21,8 @@
  const HDWalletProvider = require('@truffle/hdwallet-provider');
 //
 // const fs = require('fs');
- const mnemonic = 'stage embrace maple brief live churn crouch mercy simple author sound device';
-
+const mnemonic = 'wave swarm grow wave sister olympic title update leopard pyramid slogan clock';
+//const mnemonic = 'wolf throw plastic figure enrich seek wet loan grant security affair glue';
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -46,6 +46,14 @@ module.exports = {
     //  port: 8545,            // Standard Ethereum port (default: none)
     //  network_id: "*",       // Any network (default: none)
     // },
+
+    development: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: 5777 // Match any network id
+      },
+
+
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -65,14 +73,16 @@ module.exports = {
      //timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
      //skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
      //},
-     rinkeby: {
-      
+     ropsten: {
       provider: function () {
-      
-      return new HDWalletProvider(mnemonic, "wss://rinkeby.infura.io/ws/v3/ced9f359a4a5419bb282cfbeb08852d6")
+      return new HDWalletProvider(mnemonic, "wss://ropsten.infura.io/ws/v3/2d13b8c90e5e4effb3a9d7ddacea2a25")
       },
-      network_id: 4
-      }
+      network_id: 3,
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200
+      },
+
+
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
